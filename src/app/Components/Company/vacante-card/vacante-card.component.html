@@ -1,0 +1,35 @@
+
+<div class="card">
+    <figure class="card__image-container">
+        <img class="card__image" [src]="miVacante.imagen" alt=" Imagen de {{ miVacante.nombre }}"/>
+        <figcaption class="card__company">{{ miVacante.nombreEmpresa }}</figcaption>
+    </figure>
+
+    <section class="card__body">
+        <h2 class="card__title">{{ miVacante.nombre }}</h2>
+        <h3 class="card__subtitle">{{ miVacante.nombreCategoria }}</h3>
+        <p class="card__details">
+            {{ miVacante.detalles }}
+        </p>
+        <p class="card__salary">Salario: {{ miVacante.salario}}</p>
+
+        <!--Si está autenticado y NO es rol empresa-->
+        @if(autenticado() && rolUsuario !=="EMPRESA"){
+        <button class="card__button" [routerLink]="['/vacante-details/public/', miVacante.idVacante]">Detalle</button>
+        }
+
+        <!--Si NO está autenticado -->
+        @if(!autenticado()) {
+            <button class="card__button" [routerLink]="['/vacante-details/public/', miVacante.idVacante]">Detalle</button>
+            }  
+
+        <!--Si está autenticado y es rol empresa-->
+        @if(rolUsuario==="EMPRESA" && autenticado()) {
+            <div class="card__button-container">
+                <button class="card__button" [routerLink]="['/vacante-details/company/', miVacante.idVacante]">Detalle</button>
+                <button class="card__button" id="aqua" [routerLink]="['/solicitudes-company/', miVacante.idVacante]">Ver solicitudes</button>
+                
+            </div>
+        }
+    </section>
+</div>

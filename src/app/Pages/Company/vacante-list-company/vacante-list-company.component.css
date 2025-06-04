@@ -1,0 +1,109 @@
+.vacante-list {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.search-group {
+    display: flex;
+    align-items: center;
+}
+
+.search-group .form-control {
+    max-width: 220px;
+}
+
+.new-button {
+    white-space: nowrap;
+}
+
+
+.btn-send {
+    background-color: #013a72;
+    border-color: #003366;
+    color: #fff;
+}
+
+.btn-send:hover,
+.btn-send:focus {
+    background-color: #024b93;
+    border-color: #013365;
+}
+
+.btn-publish {
+    background-color: #00796B;
+    border-color: #00796B;
+    color: #fff;
+}
+
+.btn-publish:hover,
+.btn-publish:focus {
+    background-color: #008a7a;
+    border-color: #017a6c;
+}
+
+.title-row h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ajustes en el grid de vacantes */
+#vacante .col-auto {
+    max-width: 500px;
+    min-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .header-row {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 1rem;
+        max-width: 280px;
+        width: 100%;
+    }
+
+    /* Ocultar la columna “vacía” en móviles */
+    .header-row>.col-md-4:nth-child(2) {
+        display: none;
+    }
+
+    .search-group {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-group .form-control {
+        max-width: 200px;
+    }
+
+    .new-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1400px) {
+    .header-row {
+        justify-content: space-between;
+        padding-right: 22px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #vacante {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

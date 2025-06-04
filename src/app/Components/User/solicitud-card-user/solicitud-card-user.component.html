@@ -1,0 +1,32 @@
+
+<div class="solicitud-card">
+    <figure class="solicitud-card__image-container">
+        <img class="solicitud-card__image" [src]="miSolicitud.imagenVacante"
+            alt="Imagen de {{ miSolicitud.nombreVacante }}" />
+        <figcaption class="solicitud-card__company">
+            {{ miSolicitud.nombreEmpresa }}
+        </figcaption>
+    </figure>
+
+    <section class="solicitud-card__body">
+        <h2 class="solicitud-card__title">{{ miSolicitud.nombreVacante }}</h2>
+        <h3 class="solicitud-card__subtitle">{{ miSolicitud.categoriaVacante }}</h3>
+
+        <p class="solicitud-card__details">
+            {{ miSolicitud.detalleVacante }}
+        </p>
+        <p class="solicitud-card__salary">
+            Salario: {{ miSolicitud.salarioVacante }}
+        </p>
+        <p class="solicitud-card__estado">
+            Estado solicitud: {{ estadoSolicitud }}
+        </p>
+        <p class="solicitud-card__fecha small">
+            Fecha solicitud: {{ miSolicitud.fecha }}
+        </p>
+
+        <button class="solicitud-card__button" [routerLink]="['/solicitud-user/detail/', miSolicitud.idSolicitud]">
+            Detalle
+        </button>
+    </section>
+</div>

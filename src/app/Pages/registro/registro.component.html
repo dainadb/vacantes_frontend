@@ -1,0 +1,80 @@
+<div class="registro-container my-5">
+    <div class="registro-card mx-auto" style="max-width: 360px">
+        <div class="registro-header text-center">
+            <h5 class="mb-0">Registro</h5>
+        </div>
+
+        <form [formGroup]="registroFrom" (ngSubmit)="getRegister()" class="registro-form p-4">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" placeholder="Nombre" formControlName="nombre" class="form-control" />
+                @if(checkControl('nombre', 'required')){
+                <div class="error">Campo requerido</div>
+                }
+                @if(checkControl('nombre', 'minlength')){
+                <div class="error">Debe tener min 3 carácteres</div>
+                }
+                @if(checkControl('nombre', 'maxlength')){
+                <div class="error">No debe superar los 45 carácteres</div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" type="text" placeholder="Apellidos" formControlName="apellidos"
+                    class="form-control" />
+                @if(checkControl('apellidos', 'required')){
+                <div class="error">Campo requerido</div>
+                }
+                @if(checkControl('apellidos', 'minlength')){
+                <div class="error">Debe tener min 3 carácteres</div>
+                }
+                @if(checkControl('apellidos', 'maxlength')){
+                <div class="error">No debe superar los 100 carácteres</div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Email" formControlName="email" class="form-control" />
+                @if(checkControl('email', 'required')){
+                <div class="error">Campo requerido</div>
+                }
+                @if(checkControl('email', 'maxlength')){
+                <div class="error">No debe superar los 45 carácteres</div>
+                }
+                @if(checkControl('email', 'pattern')){
+                <div class="error">Formato incorrecto</div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input id="password" type="password" placeholder="Contraseña" formControlName="password"
+                    class="form-control" />
+                @if(checkControl('password', 'required')){
+                <div class="error">Campo requerido</div>
+                }
+                @if(checkControl('password', 'minlength')){
+                <div class="error">Debe tener min 8 carácteres</div>
+                }
+                @if(checkControl('password', 'maxlength')){
+                <div class="error">No debe superar los 100 carácteres</div>
+                }
+            </div>
+
+            <div class="button-group d-flex justify-content-between mt-4">
+                <button type="button" class="btn-cancel btn-sm" [routerLink]="['/login']">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-submit btn-sm" [disabled]="!registroFrom.valid">
+                    Registrarse
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+ 
+ 
+ 
+ 
